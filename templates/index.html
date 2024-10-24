@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO2 Emissions Prediction</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CO2 Emissions Prediction</h1>
+        <form id="co2Form" action="/calculate" method="post" enctype="multipart/form-data">
+            <label for="fileInput">Choose Excel File</label>
+            <p>Note: kindly make sure that your excel file must contain a minimum of 8 attributes or column names which are Production volume, Coal Production, Electricity Generation,
+                Hydroelectricity consumption, Nuclear energy consumption,
+                final energy consumption, Electricity from fossil fuels,
+                Total land use</p>
+            <div class="file-input-wrapper">
+                <input type="file" id="fileInput" name="file" accept=".xlsx,.xls">
+            </div>
+            <button type="submit">Predict CO2 Emissions</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+    // Your JavaScript code here (if needed)
+    </script>
+</body>
+</html>
+

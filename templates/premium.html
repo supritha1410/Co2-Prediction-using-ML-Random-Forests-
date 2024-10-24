@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('../static/qq.jpg'); /* Add your background image path */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        p, label, select, input, button {
+            font-size: 16px;
+        }
+
+        .section {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .section h2 {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        form {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Premium Services!</h1>
+
+        <!-- Combined Form Section -->
+        <div class="section">
+            <h2>CO2 Emissions and Industry Details</h2>
+            <p>Please enter the percentage of CO2 emitted and select the type of industry:</p>
+            <form action="/calculate" method="post">
+                <label for="co2_percentage">CO2 Percentage:</label>
+                <input type="number" id="co2_percentage" name="co2_percentage" min="0" max="100" step="0.01" required aria-label="Enter the percentage of CO2 emitted">
+
+                <label for="industry">Industry:</label>
+                <select id="industry" name="industry" required aria-label="Select the type of industry">
+                    <option value="Power Generation Industry">Power Generation Industry</option>
+                    <option value="Transportation Industry">Transportation Industry</option>
+                    <option value="Cement/Steel Industry">Cement/Steel Industry</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Buildings and Residential Heating">Buildings and Residential Heating</option>
+                    <option value="Waste Management">Waste Management</option>
+                    <option value="Others">Others</option>
+                </select>
+
+                <label for="reduced_carbon_emission">Reduced Carbon Emission:</label>
+                <input type="number" id="reduced_carbon_emission" name="reduced_carbon_emission" min="0" max="100" step="0.01" required aria-label="Enter the reduced carbon emission percentage">
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- Value Proposition Section -->
+        <div class="section">
+            <h2>Value Proposition</h2>
+            <p>Our motto is to reduce carbon emissions at any cost.</p>
+        </div>
+
+        <!-- Methodology Section -->
+        <div class="section">
+            <h2>Methodology</h2>
+            <p><b>Sustainable measures:</b></p>
+            <p>1. Urgent action required:</p>
+            <ul>
+                <li>Emission reduction across sectors</li>
+                <li>Climate action</li>
+                <li>Population health</li>
+                <li>Sustainable resource management</li>
+                <li>Employment prospects</li>
+            </ul>
+            <p>2. Invest in innovative technologies for decarbonization:</p>
+            <ul>
+                <li>Innovation development</li>
+                <li>Footprint reduction</li>
+                <li>Market superiority</li>
+                <li>Adaptability</li>
+            </ul>
+            <p>3. Implement strict regulations on greenhouse gas emissions:</p>
+            <ul>
+                <li>Adherence and responsibility</li>
+                <li>Emission abatement</li>
+                <li>Strategic planning</li>
+                <li>Regulatory stability</li>
+            </ul>
+            <p>4. Raise awareness and mobilize public support for climate action:</p>
+            <ul>
+                <li>Behavior adjustment</li>
+                <li>Government determination</li>
+                <li>Public participation</li>
+                <li>Skill building and empowerment</li>
+            </ul>
+        </div>
+
+        <!-- Technologies Used Section -->
+        <div class="section">
+            <h2>Technologies Used</h2>
+            <p>Here is a breakdown of technologies based on carbon emission zones:</p>
+            <p><b>Dark Red Zone (High Carbon Emissions):</b></p>
+            <ul>
+                <li>Coal-fired power plants</li>
+                <li>Conventional gasoline and diesel vehicles</li>
+                <li>Heavy industries</li>
+                <li>Conventional agricultural practices</li>
+            </ul>
+            <p><b>Red Zone (Significant Carbon Emissions):</b></p>
+            <ul>
+                <li>Natural gas-fired power plants</li>
+                <li>Traditional waste management</li>
+                <li>Traditional urban transportation</li>
+                <li>Energy-intensive manufacturing processes</li>
+            </ul>
+            <p><b>Orange Zone (Moderate Carbon Emissions):</b></p>
+            <ul>
+                <li>Renewable energy technologies</li>
+                <li>Energy-efficient buildings</li>
+                <li>Water conservation technologies</li>
+                <li>Sustainable agricultural practices</li>
+            </ul>
+            <p><b>Green Zone (Low Carbon Emissions):</b></p>
+            <ul>
+                <li>Electric vehicles (EVs)</li>
+                <li>Energy-efficient appliances and lighting</li>
+                <li>Renewable energy storage</li>
+                <li>Circular economy strategies</li>
+            </ul>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class="contact-info">
+            <h2>For Further Details</h2>
+            <p>Collaborations: You can collaborate with other companies who are already our customers.</p>
+            <p>Email: gundetisupritha@gmail.com</p>
+            <p>Phone Number: 99xxxxxxx</p>
+            <p>Instagram: xxxx_xx</p>
+            <p>Facebook: xxxxxx</p>
+        </div>
+    </div>
+</body>
+</html>

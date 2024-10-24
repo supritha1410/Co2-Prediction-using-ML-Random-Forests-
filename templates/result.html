@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO2 Emissions Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('../static/ss.jpg'); /* Add your background image path */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .sustainable-measures {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .sustainable-measures h2 {
+            margin-bottom: 10px;
+        }
+
+        .sustainable-measures ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .custom-button {
+            width: 200px;
+            height: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .custom-button:hover {
+            background-color: #5cb85c;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .sustainable-measures ul li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        #co2-status {
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .pie-chart-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pie-chart {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .hire-us-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .custom-button {
+                width: 150px;
+                height: 40px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CO2 Emissions Prediction Result</h1>
+
+        <p id="co2-status" class="{{ 'red' if percentage_emissions and percentage_emissions >= 75 else '' }}">
+            {% if percentage_emissions %}
+                {% if percentage_emissions >= 75 %}
+                    It is in the red zone.
+                {% endif %}
+                Percentage of CO2 Emissions: {{ percentage_emissions }}%
+            {% else %}
+                No CO2 emissions data available.
+            {% endif %}
+        </p>
+
+        <div class="sustainable-measures">
+            <h2>Sustainable Measures:</h2>
+            <ul id="sustainable-measures-list">
+                {% if sustainable_measures %}
+                    {% for measure in sustainable_measures %}
+                        <li>{{ measure }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>No sustainable measures data available.</li>
+                {% endif %}
+            </ul>
+        </div>
+
+        {% if total_predicted_emissions_after_percentage %}
+            <p><b>Reduced Carbon Emissions:</b> {{ total_predicted_emissions_after_percentage }}%</p>
+        {% endif %}
+
+        <div class="pie-chart-container">
+            <h2>Contribution of Each Attribute to CO2 Emissions</h2>
+            <img src="{{ url_for('static', filename='pie_chart.png') }}" alt="Pie chart showing the contribution of each attribute to CO2 emissions" class="pie-chart">
+        </div>
+
+        <div class="hire-us-button">
+            <a href="/premium"><button class="custom-button"><b>Hire Us</b></button></a>
+        </div>
+    </div>
+</body>
+</html>
